@@ -11,8 +11,8 @@ class Experiences extends Component {
             <Link to='/'><span>Home </span></Link>
             <Link to='/hosts'><span>Hosts </span></Link>
             <Link to='/experiences'><span>Experiences </span></Link>
-            
-            <h1>Previous Experiences page</h1>
+
+            <h1>Second  hkbkhbkbkjbjkpage</h1>
         </div> );
     }
 }
