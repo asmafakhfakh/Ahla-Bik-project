@@ -12,7 +12,7 @@ class Home extends Component {
             <Link to='/hosts'><span>Hosts </span></Link>
             <Link to='/experiences'><span>Experiences </span></Link>
 
-            <h1>Home Page ...</h1>
+            <h1>This is the first push by firas black hacker</h1>
         </div> );
     }
 }
