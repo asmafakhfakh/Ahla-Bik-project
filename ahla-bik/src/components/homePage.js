@@ -11,6 +11,7 @@ class Home extends Component {
             <Link to='/'><span>Home </span></Link>
             <Link to='/hosts'><span>Hosts </span></Link>
             <Link to='/experiences'><span>Experiences </span></Link>
+            <Link to='/Guest'><span>Guest Page</span></Link>
 
             <h1>This is the first push by firas black hacker</h1>
         </div> );
