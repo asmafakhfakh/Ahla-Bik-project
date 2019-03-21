@@ -34,6 +34,8 @@ editguest=()=>{
             <Link to='/'><span>Home </span></Link>
             <Link to='/hosts'><span>Hosts </span></Link>
             <Link to='/experiences'><span>Experiences </span></Link>
+            <Link to='/host'><span>Host Profile</span></Link>
+            
 
 
 <h4>Name :</h4>

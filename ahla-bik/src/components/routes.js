@@ -5,6 +5,7 @@ import Home from './homePage'
 import Hosts from './hostsPage'
 import Experiences from './experiencesPage'
 import Guest from './guest'
+import Host from './host'
 
 class Routes extends Component {
     render() { 
@@ -15,8 +16,9 @@ class Routes extends Component {
              <Route exact path='/experiences' component={Experiences}/>
              <Route exact path='/Guest' component={Guest}/>
              {/* render={props=><Guest _id={props.match.params._id}/>}/> */}
-             {/* render={props=><EditContact _id={props.match.params._id}/>}/> */}
+             <Route exact path='/host/:_id' render={props=><Host _id={props.match.params._id}/>}/>
 
+             
             </div>
          );
     }

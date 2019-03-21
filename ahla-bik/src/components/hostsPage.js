@@ -12,6 +12,7 @@ class Hosts extends Component {
             <Link to='/hosts'><span>Hosts </span></Link>
             <Link to='/experiences'><span>Experiences </span></Link>
             <Link to='/Guest'><span>Guest Page</span></Link>
+            <Link to='/host'><span>Host Profile</span></Link>
             <h1>Hosts propositions page</h1>
         </div> );
     }

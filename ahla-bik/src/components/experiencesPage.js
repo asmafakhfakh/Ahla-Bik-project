@@ -6,19 +6,15 @@ class Experiences extends Component {
         super(props);
         this.state = {  }
     }
-    render() { 
+    render() {
         return ( <div>
             <Link to='/'><span>Home </span></Link>
             <Link to='/hosts'><span>Hosts </span></Link>
             <Link to='/experiences'><span>Experiences </span></Link>
-<<<<<<< HEAD
             <Link to='/Guest'><span>Guest Page</span></Link>
+            <Link to='/host'><span>Host Profile</span></Link>
             
             <h1>Previous Experiences page</h1>
-=======
-
-            <h1>Second  esdddqdqdqdqshfoqsfhIJBGIOHzbgihebfiefbqkbkjbjkpage</h1>
->>>>>>> 0c97053263c0d946f337e4b9facafcd1c054faf8
         </div> );
     }
 }
