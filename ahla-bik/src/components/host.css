@@ -1,0 +1,69 @@
+.pageContainer{
+    border: 1px solid red;
+}
+a{
+    text-decoration: none;
+}
+
+.sectionTitle{
+    font-size: 100%;
+    font-family: 'Sigmar One', cursive;
+}
+.activityTitle{
+    font-family: 'Indie Flower', cursive;
+}
+
+
+/* -----------------navbar------------------ */
+.navBar{
+    
+}
+.navItem{
+    color: black;
+    font-weight: bold;
+    padding: 2%;
+}
+
+.profilePicture{
+    width:100%;
+    height: auto;
+}
+
+/*------------acordeon------------*/
+.gallery-wrap {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 70vh;
+  }
+  
+  .item {
+    flex: 1;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: none;
+    transition: flex 0.8s ease;
+  }
+  .item:hover{
+    flex: 7;
+  }
+  .item-1 { 
+    background-image: url('http://www.uncafeturc.fr/contents/media/l_tasses-cafe-turc-bariole-mixed-bleu-details_.jpg');
+  }
+  
+  .item-2 { 
+    background-image: url('https://www.airfrance.fr/FR/common/common/img/tbaf/news/IST/un-cafe-turc-sinon-rien/IST-un-cafe-turc-sinon-rien-2_1-1024x512.jpg');
+  }
+  
+  .item-3 { 
+    background-image: url('https://cache.marieclaire.fr/data/photo/w1000_c17/cuisine/4j/cafeturc.jpg');
+  }
+  
+  .item-4 { 
+    background-image: url('http://hammam-alandalous.fr/wp-content/uploads/2015/01/salon-marocain-ambiance.jpg');
+  }
+  
+  .item-5 { 
+    background-image: url('https://www.patisserie-rekik.com/modules/homeslider/images/46ee4645690cb238ce2d0b6b57f00b351c8d21d5_plateau.jpg');
+  }
