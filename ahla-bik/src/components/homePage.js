@@ -15,25 +15,33 @@ class Home extends Component {
             <Link to='/host'><span>Host Profile</span></Link> */}
             <nav className="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div className="container">
-          <a className="navbar-brand" href="index.html">Adventure</a>
+          <a className="navbar-brand" href="index.html">AHLA BIK</a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="oi oi-menu" /> Menu
           </button>
           <div className="collapse navbar-collapse" id="ftco-nav">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item active"><a href="index.html" className="nav-link">Home</a></li>
-              <li className="nav-item"><a href="about.html" className="nav-link">About</a></li>
-              <li className="nav-item"><a href="places.html" className="nav-link">Places</a></li>
-              <li className="nav-item"><a href="hotel.html" className="nav-link">Hotels</a></li>
-              <li className="nav-item"><a href="blog.html" className="nav-link">Blog</a></li>
-              <li className="nav-item"><a href="contact.html" className="nav-link">Contact</a></li>
+              <li className="nav-item active"><Link to='/'><a  className="nav-link">Home</a></Link></li>
+            
+              <li className="nav-item"><Link to='/hosts'><a className="nav-link">Hosts</a></Link></li>
+              <li className="nav-item"><Link to='/guests'><a className="nav-link">Experiences</a></Link></li>
+      
             </ul>
           </div>
         </div>
       </nav>
 
 
-      <div className="hero-wrap js-fullheight" style={{backgroundImage: 'url("images/bg_1.jpg")', height: '576px'}}>
+      <div className="hero-wrap js-fullheight" style={{ height: '576px'}}>
+      <div className="section">
+
+        <div className="video-container">
+          <div className="color-overlay" />
+          <video autoPlay loop muted>
+            <source src="videoplayback.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
         <div className="overlay" />
         <div className="container">
           <div className="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true" style={{height: '576px'}}>
@@ -45,7 +53,7 @@ class Home extends Component {
         </div>
       </div> 
 
-            <h1>This is the first push by firas black hacker</h1>
+      
         </div> );
     }
 }
