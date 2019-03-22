@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom'
 
 import Home from './homePage'
 import Hosts from './hostsPage'
-import Experiences from './experiencesPage'
+import Experiences from './experiencesPage/experiencesPage'
 import Guest from './guest'
 import Host from './host'
 
