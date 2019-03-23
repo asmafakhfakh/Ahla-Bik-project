@@ -6,9 +6,6 @@ class CommentsItem extends Component {
         return ( 
             
                     <li className="comment">
-                      <div className="vcard bio">
-                        <img src={item.img} alt="Image placeholder" />
-                      </div>
                       <div className="comment-body">
                         <h3>{item.name}</h3>
                         <div className="meta">{item.date}</div>
