@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import Footer from '../footer.js'
 //import {Link} from 'react-router-dom';
 import Banner from './bannerItem';
 import MainSection from'./mainSectionItem';
-import Footer from 'C:/Users/HP/Desktop/ahla bik/ahla-bik/src/components/footer'
-import Navbar from 'C:/Users/HP/Desktop/ahla bik/ahla-bik/src/components/navbar'
+
+import Navbar from '../navbar'
 
 class Hosts extends Component {
     constructor(props) {
