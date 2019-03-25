@@ -5,6 +5,7 @@ import Home from './homePage'
 import Hosts from './hostsPage/hostsPage'
 import Experiences from './experiencesPage/experiencesPage'
 import Guest from './guest'
+import ContactPage from './contactPage/contactPage';
 
 class Routes extends Component {
     render() { 
@@ -15,6 +16,8 @@ class Routes extends Component {
              <Route exact path='/experiences' component={Experiences}/>
              <Route exact path='/Guest' component={Guest}/>
              {/* render={props=><Guest _id={props.match.params._id}/>}/> */}
+             <Route exact path='/contact' component={ContactPage}/>
+
 
              
             </div>

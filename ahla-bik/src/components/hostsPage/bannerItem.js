@@ -13,7 +13,7 @@ class Banner extends Component {
                     <div className="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true" style={{height: '625px'}}>
                         <div className="col-md-9 text-center ftco-animate fadeInUp ftco-animated" data-scrollax=" properties: { translateY: '70%' }" style={{transform: 'translateZ(0px) translateY(4.256%)'}}>
                             <p className="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style={{opacity: '0.90272', transform: 'translateZ(0px) translateY(1.824%)'}}><span className="mr-2"><a href="/">Home</a></span> <span>Hosts</span></p>
-                            <h1 className="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style={{opacity: '0.90272', transform: 'translateZ(0px) translateY(1.824%)'}}>Your next journey</h1>
+                            <h1 className="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style={{opacity: '0.90272', transform: 'translateZ(0px) translateY(1.824%)'}}>Find your host</h1>
                         </div>
                     </div>
                 </div>
