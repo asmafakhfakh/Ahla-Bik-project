@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import StarRatingComponent from 'react-star-rating-component';
+
 class HostCard extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { rating: 1 }
     }
     render() {
         const {item}=this.props
@@ -18,12 +20,7 @@ class HostCard extends Component {
                         <div className="one">
                             <h3><a href="#">{item.title}</a></h3>
                             <p className="rate">
-                            <i className="icon-star" />
-                            <i className="icon-star" />
-                            <i className="icon-star" />
-                            <i className="icon-star" />
-                            <i className="icon-star-o" />
-                            <span>8 Rating</span>
+                                <StarRatingComponent name="rate1" starCount={5} value={item.rating}/>
                             </p>
                         </div>
                         <div className="two">
