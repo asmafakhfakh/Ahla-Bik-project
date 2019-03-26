@@ -21,11 +21,11 @@ class AuthenticationPage extends Component {
     render() { 
 
          
-
+           <div>
            <Provider store={store}>
            <AuthenticationApp/>
-            </Provider>
-          
+           </Provider>
+           </div>
   
 
 
