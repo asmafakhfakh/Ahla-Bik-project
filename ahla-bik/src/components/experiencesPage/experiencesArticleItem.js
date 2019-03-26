@@ -1,38 +1,28 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
 
 import CommentsItem from "./experiencesCommentsItem"
-
-
-const listOfComments=[
-    {
-    id:1, 
-    img:"images/person_1.jpg", 
-    name:"John Doe",
-    date:"October 03, 2018 at 2:21pm",
-    body:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?"
-    },
-    {
-      id:2, 
-      img:"images/person_1.jpg",
-      name:"John Doe",
-      date:"October 03, 2018 at 2:21pm",
-      body:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?"
-    },
-    {
-      id:3, 
-      img:"images/person_1.jpg",
-      name:"John Doe",
-      date:"October 03, 2018 at 2:21pm", 
-      body:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?"
-    }
-    ]
+import AddComment from "./experiencesAddComment"
 
 
 
 
 
 class Article extends Component {
-    state = {  }
+  constructor(props)
+  {
+      super(props);
+      this.state={
+          shown:false,
+      }
+  }
+
+  inputhandler=()=>
+  {
+    this.setState({shown:!this.state.shown})
+  }
+  
+
     render() { 
         const {item}=this.props
         return ( 
@@ -50,28 +40,42 @@ class Article extends Component {
                       <a href="#" className="tag-cloud-link">Travel</a>
                     </div>
                     <div className="about-author d-flex p-4 bg-light">
-                    <div className="bio mr-5">
+                    {/*<div className="bio mr-5">
                       <img src="images/person_1" alt="Image placeholder" className="img-fluid mb-4" />
-                    </div>
+                    </div>*/}
                     <div className="desc">
                       <h3>{item.authorname}</h3>
                       <p>{item.authordescription}</p>
                     </div>
                   </div>
+                  <br/>
                   <h3 className="mb-5">Comments</h3>
                 <div className="pt-5 mt-5">   
                   <ul className="comment-list">
                 {/*maping items*/}
                 {
-                  listOfComments.map((el,index)=><CommentsItem item={el} key={index}/>)
+                  this.props.comment.map((el,index)=><CommentsItem item={el} key={index}/>)
                 }
                   </ul>
                   </div>
+                {/* Now Add comment section */}
+                <div className="form-group">
+                    <button onClick={this.inputhandler} className="btn py-3 px-4 btn-primary" type="button">Add Comment</button>
+                    { this.state.shown ? <AddComment/> : null }
+                 </div>
 
-                  {/* END comment-list */}
             </div>
          );
     }
 }
- 
-export default Article;
+
+
+
+
+const mapStateToProps=(state)=>
+{  return {comment:state.experienceCommentReducer}
+}
+
+
+
+export default connect(mapStateToProps)(Article)
