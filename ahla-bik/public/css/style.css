@@ -2,8 +2,7 @@
  * Bootstrap v4.1.0 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)*/
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -9081,7 +9080,7 @@ textarea.form-control {
         font-size: 13px;
         letter-spacing: .1em;
         color: #ccc; }
-      .comment-list li .comment-body .reply {
+      .comment-list li .comment-body .like {
         padding: 5px 10px;
         background: #e6e6e6;
         color: #000000;
@@ -9090,7 +9089,7 @@ textarea.form-control {
         letter-spacing: .1em;
         font-weight: 400;
         border-radius: 4px; }
-        .comment-list li .comment-body .reply:hover {
+        .comment-list li .comment-body .like:hover {
           color: #fff;
           background: black; }
 

@@ -14,7 +14,7 @@ handlechage=(event)=>{
     this.setState({[event.target.name]:event.target.value})
 }
 add=(e)=> {
-    this.props.addcomment({...this.state,_id:Math.random()*1000+''})
+    this.props.addcomment({...this.state,_id:Math.random()*1000+'',like:0,isliked:true})
     e.preventDefault();
     console.log(this.state)
   }
