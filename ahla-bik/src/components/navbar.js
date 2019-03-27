@@ -22,7 +22,6 @@ class Navbar extends Component {
                             <li className="nav-item"><Link to='/hosts'><a className="nav-link">Hosts</a></Link></li>
                             <li className="nav-item"><Link to='/experiences'><a className="nav-link">Experiences</a></Link></li>
                             <li className="nav-item"><Link to='/contact'><a className="nav-link">Contact</a></Link></li>
-                            <li className="nav-item"><Link to='/login'><a className="nav-link">Login</a></Link></li>
                         </ul>
                     </div>
                 </div>
