@@ -52,7 +52,7 @@ class Article extends Component {
                   <h3 className="mb-5">Comments</h3>
                 <div className="pt-5 mt-5">   
                   <ul className="comment-list">
-                {/*maping items*/}
+                {/*maping items of Comments*/}
                 {
                   this.props.comment.map((el,index)=><CommentsItem item={el} key={index}/>)
                 }
