@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { userActions } from '../_actions';
+import { userActions } from '../_actions/user.actions';
 
 class LoginPage extends React.Component {
     constructor(props) {
@@ -51,6 +51,7 @@ class LoginPage extends React.Component {
                             <div className="help-block">Username is required</div>
                         }
                     </div>
+                  
                     <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
                         <label htmlFor="password">Password</label>
                         <input type="password" className="form-control" name="password" value={password} onChange={this.handleChange} />

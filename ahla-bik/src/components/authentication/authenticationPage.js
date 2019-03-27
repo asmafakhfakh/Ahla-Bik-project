@@ -1,40 +1,42 @@
-import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
 
-import { render } from 'react-dom';
+import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 
-import { store } from './_helpers';
-
-import AuthenticationApp from './authenticationApp/authentication'
-
+import { store } from './_helpers/store';
+import { AuthenticationApp } from './authenticationApp/authentication';
 
 // setup fake backend
-import { configureFakeBackend } from './_helpers';
+import { configureFakeBackend } from './_helpers/fake-backend';
 configureFakeBackend();
 
-class AuthenticationPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
-    render() { 
-
-         
-
-           <Provider store={store}>
-           <AuthenticationApp/>
-            </Provider>
-          
+// const AuthenticationPage = () => {
+// render(); { 
+//             return (
+//             <div>  <Provider store={store}>
+//         <AuthenticationApp />
+//         </Provider>
+//             </div>);
   
-
-
-
-    
+//             };
+// };
+// export default AuthenticationPage;    
 
       
-       
-    }
-}
- 
-export default AuthenticationPage;
+  class AuthenticationPage  extends Component {
+      constructor(props) {
+          super(props);
+          this.state = {  }
+      }
+      render() { 
+          return (    <div>  <Provider store={store}>
+                         <AuthenticationApp />
+                         
+                        </Provider>
+                        
+                         </div> );
+      }
+  }
+   
+  export default AuthenticationPage ;     
+
+

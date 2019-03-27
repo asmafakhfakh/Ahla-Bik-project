@@ -2,14 +2,13 @@ import React from 'react';
 import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { history } from '../_helpers';
-import { alertActions } from '../_actions';
-import { PrivateRoute } from '../_components';
-import { HomePage } from '../HomePage';
-import { LoginPage } from '../LoginPage';
-import { RegisterPage } from '../RegisterPage';
+import { history } from '../_helpers/history';
+import { alertActions } from '../_actions/alert.actions';
+import { PrivateRoute } from '../_components/PrivateRoute';
+import { HomePage } from '../HomePage/HomePage';
+import { LoginPage } from '../LoginPage/LoginPage';
+import { RegisterPage } from '../RegisterPage/RegisterPage';
 
-import { authentication } from '../_reducers/authentication.reducer';
 
 class  AuthenticationApp extends React.Component {
     constructor(props) {
@@ -26,16 +25,18 @@ class  AuthenticationApp extends React.Component {
         const { alert } = this.props;
         return (
             <div className="jumbotron">
+                 <h1>Reload la page - enzel f5  </h1>
                 <div className="container">
+           
                     <div className="col-sm-8 col-sm-offset-2">
-                        {/* {alert.message &&
+                        {alert.message &&
                             <div className={`alert ${alert.type}`}>{alert.message}</div>
-                        } */}
+                        }
                         <Router history={history}>
                             <div>
                                 <PrivateRoute exact path="/" component={HomePage} />
-                                <Route path="/login" component={LoginPage} />
-                                <Route path="/register" component={RegisterPage} />
+                                <Route exact path="/login" component={LoginPage} />
+                                <Route exact path="/register" component={RegisterPage} />
                             </div>
                         </Router>
                     </div>
@@ -52,6 +53,6 @@ function mapStateToProps(state) {
     };
 }
 
-// const connectedAuthenticationApp = connect(mapStateToProps)(AuthenticationApp);
-// export { connectedAuthenticationApp as AuthenticationApp };
- export default AuthenticationApp; 
+const connectedAuthenticationApp = connect(mapStateToProps)(AuthenticationApp);
+export  { connectedAuthenticationApp as AuthenticationApp };
+// export default connect(mapStateToProps)(AuthenticationApp) ;
