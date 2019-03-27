@@ -108,7 +108,7 @@ class SideSearch extends Component {
                         </select>
                       </div>
                     </div>
-
+                    
                     <div className="form-group">
                       <input type="button" defaultValue="Search" className="btn btn-primary py-3 px-5" onClick={this.handleClick} />
                     </div>

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import HostCard from './hostCard'
 import SideSearch from './sideSearch';
+import hoststab from './dataHosts'
+
 
 
 class MainSection extends Component {
