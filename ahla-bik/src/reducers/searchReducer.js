@@ -1,17 +1,11 @@
-
 import hoststab from '../components/hostsPage/dataHosts'
 
 
 const searchReducer = (state=hoststab, action)=>{
     switch (action.type){
-
         case 'SEARCH_HOST':
-        return ( state.filter((el,index)=>(el.activity===action.keyactivity),console.log(state))
-             
-      
+        return (hoststab.filter((el,index)=> (el.activity.indexOf(action.keyactivity)!==-1 && el.destination.indexOf(action.keycity)!==-1 )) 
         )
-      
-    
      default :
     return state
 }

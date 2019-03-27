@@ -8,12 +8,11 @@ class SideSearch extends Component {
         this.state = { 
             keyactivity: "",
             keycity: "",
-            keynumber: 1,
-            fivestar: false,
-            fourstar: false,
-            threestar: false,
-            twostar: false,
-            onestar: false,
+            fivestar: 0,
+            fourstar: 0,
+            threestar: 0,
+            twostar: 0,
+            onestar: 0,
          }
     }
 
@@ -21,21 +20,40 @@ class SideSearch extends Component {
     handleActivityChange=(event)=>{
         this.setState({keyactivity: event.target.value})
     }
-    // handleCityChange=(event)=>{
-    //     this.setState({keycity: event.target.value})
-    // }
-    // handleNumberChange=(event)=>{
-    //     this.setState({keynumber: event.target.value})
-    // }
+    handleCityChange=(event)=>{
+       this.setState({keycity: event.target.value})
+    }
+    handle5star=(event)=>{
+      if (this.state.fivestar===5)
+      {this.setState({fivestar:0})}
+      else {this.setState({fivestar:5})}
+    }
+    handle4star=(event)=>{
+      if (this.state.fourstar===4)
+      {this.setState({fourstar:0})}
+      else {this.setState({fourstar:4})}
+    }
+    handle3star=(event)=>{
+      if (this.state.threestar===3)
+      {this.setState({threestar:0})}
+      else {this.setState({threestar:3})}
+    }
+    handle2star=(event)=>{
+      if (this.state.twostar===2)
+      {this.setState({twostar:0})}
+      else {this.setState({twostar:2})}
+    }
+    handle1star=(event)=>{
+      if (this.state.onestar===1)
+      {this.setState({onestar:0})}
+      else {this.setState({onestar:1})}
+    }
     handleClick=()=>{
-      console.log(this.state.keyactivity)
-        this.props.searchReducer(this.state.keyactivity)
+        this.props.searchReducer(this.state.keyactivity,this.state.keycity)
     }
 
     render() { 
-      console.log(this.props.keysearch)
-      console.log(this.props.searchReducer)
-
+      
         return ( 
             <div className="col-lg-3 sidebar order-md-last ftco-animate fadeInUp ftco-animated">
               <div className="sidebar-wrap ftco-animate fadeInUp ftco-animated">
@@ -53,7 +71,7 @@ class SideSearch extends Component {
                           <option value="Brunch">Brunch</option>
                           <option value="Guided tour">Guided tour</option>
                           <option value="Sport">Sport</option>
-                          <option value="">Other</option>
+                          <option value="Other">Other</option>
                         </select>
                       </div>
                     </div>
@@ -63,38 +81,34 @@ class SideSearch extends Component {
                         <div className="icon"><span className="ion-ios-arrow-down" /></div>
                         <select name id className="form-control" placeholder="Keyword search" onChange={this.handleCityChange}>
                           <option value="">City</option>
-                          <option value="tunis">Tunis</option>
-                          <option value="sousse">Sousse</option>
-                          <option value="ariana">Ariana</option>
-                          <option value="beja">Beja</option>
-                          <option value="ben arous">Ben Arous</option>
-                          <option value="bizerte">Bizerte</option>
-                          <option value="gabes">Gabes</option>
-                          <option value="gafsa">Gafsa</option>
-                          <option value="jendouba">Jendouba</option>
-                          <option value="kairouan">Kairouan</option>
-                          <option value="kasserine">Kasserine</option>
-                          <option value="kebili">Kebili</option>
-                          <option value="kef">Kef</option>
-                          <option value="mahdia">Mahdia</option>
-                          <option value="manouba">Manouba</option>
-                          <option value="medenine">Medenine</option>
-                          <option value="monastir">Monastir</option>
-                          <option value="nabeul">Nabeul</option>
-                          <option value="sfax">Sfax</option>
-                          <option value="sidi bouzid">Sidi Bouzid</option>
-                          <option value="siliana">Siliana</option>
-                          <option value="tataouine">Tataouine</option>
-                          <option value="tozeur">Tozeur</option>
-                          <option value="zaghouan">Zaghouan</option>
+                          <option value="Ariana">Ariana</option>
+                          <option value="Beja">Beja</option>
+                          <option value="Ben arous">Ben Arous</option>
+                          <option value="Bizerte">Bizerte</option>
+                          <option value="Gabes">Gabes</option>
+                          <option value="Gafsa">Gafsa</option>
+                          <option value="Jendouba">Jendouba</option>
+                          <option value="Kairouan">Kairouan</option>
+                          <option value="Kasserine">Kasserine</option>
+                          <option value="Kebili">Kebili</option>
+                          <option value="Kef">Kef</option>
+                          <option value="Mahdia">Mahdia</option>
+                          <option value="Manouba">Manouba</option>
+                          <option value="Medenine">Medenine</option>
+                          <option value="Monastir">Monastir</option>
+                          <option value="Nabeul">Nabeul</option>
+                          <option value="Sfax">Sfax</option>
+                          <option value="Sidi bouzid">Sidi Bouzid</option>
+                          <option value="Siliana">Siliana</option>
+                          <option value="Sousse">Sousse</option>
+                          <option value="Tataouine">Tataouine</option>
+                          <option value="Tozeur">Tozeur</option>
+                          <option value="Tunis">Tunis</option>
+                          <option value="Zaghouan">Zaghouan</option>
                         </select>
                       </div>
                     </div>
-                    
-                    <div className="form-group">
-                      <input type="number" id="guests_number" className="form-control" placeholder="Guests number" onChange={this.handleNumberChange}/>
-                    </div>
-                    
+
                     <div className="form-group">
                       <input type="button" defaultValue="Search" className="btn btn-primary py-3 px-5" onClick={this.handleClick} />
                     </div>
@@ -107,31 +121,31 @@ class SideSearch extends Component {
                 <h3 className="heading mb-4">Star Rating</h3>
                 <form method="post" className="star-rating">
                   <div className="form-check">
-                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                    <input type="checkbox" className="form-check-input" id="exampleCheck1" onChange={this.handle5star} />
                     <label className="form-check-label" htmlFor="exampleCheck1">
                       <p className="rate"><span><i className="icon-star" /><i className="icon-star" /><i className="icon-star" /><i className="icon-star" /><i className="icon-star" /></span></p>
                     </label>
                   </div>
                   <div className="form-check">
-                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                    <input type="checkbox" className="form-check-input" id="exampleCheck1" onChange={this.handle4star}/>
                     <label className="form-check-label" htmlFor="exampleCheck1">
                       <p className="rate"><span><i className="icon-star" /><i className="icon-star" /><i className="icon-star" /><i className="icon-star" /><i className="icon-star-o" /></span></p>
                     </label>
                   </div>
                   <div className="form-check">
-                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                    <input type="checkbox" className="form-check-input" id="exampleCheck1" onChange={this.handle3star}/>
                     <label className="form-check-label" htmlFor="exampleCheck1">
                       <p className="rate"><span><i className="icon-star" /><i className="icon-star" /><i className="icon-star" /><i className="icon-star-o" /><i className="icon-star-o" /></span></p>
                     </label>
                   </div>
                   <div className="form-check">
-                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                    <input type="checkbox" className="form-check-input" id="exampleCheck1" onChange={this.handle2star}/>
                     <label className="form-check-label" htmlFor="exampleCheck1">
                       <p className="rate"><span><i className="icon-star" /><i className="icon-star" /><i className="icon-star-o" /><i className="icon-star-o" /><i className="icon-star-o" /></span></p>
                     </label>
                   </div>
                   <div className="form-check">
-                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                    <input type="checkbox" className="form-check-input" id="exampleCheck1" onChange={this.handle1star}/>
                     <label className="form-check-label" htmlFor="exampleCheck1">
                       <p className="rate"><span><i className="icon-star" /><i className="icon-star-o" /><i className="icon-star-o" /><i className="icon-star-o" /><i className="icon-star-o" /></span></p>
                     </label>
@@ -144,26 +158,28 @@ class SideSearch extends Component {
 }
 
 
-const mapStateToProps=(state)=>{
-    return{
-        keysearch:state.searchReducer
-    }
-}
+//  const mapStateToProps=(state)=>{
+//      return{
+//          keysearch:state.searchReducer
+//      }
+//  }
 
 
 const mapDispatchToProps=(dispatch)=>{
     return{
-        searchReducer:keyactivity=>{
+        searchReducer:(keyactivity,keycity,fivestar,fourstar,threestar,twostar,onestar)=>{
             dispatch({
                 type:'SEARCH_HOST',
-                keyactivity
+                keyactivity,
+                keycity,
+                fivestar,
+                fourstar,
+                threestar,
+                twostar,
+                onestar
             })
         }
     }
 }
- 
-// export default connect(mapStateToProps, mapDispatchToProps) (SideSearch);
 
-
-
-export default connect(mapStateToProps,mapDispatchToProps)(SideSearch);
+export default connect(null,mapDispatchToProps)(SideSearch);
