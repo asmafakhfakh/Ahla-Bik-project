@@ -4,14 +4,21 @@ import './experienceCSS.css'
 
 
 class CommentsItem extends Component {
+  constructor(props)
+  {
+      super(props);
+      this.state={
+        showndeletebutton:true,
+      }
+  }
+
 
     add=(e)=>{
       this.props.dispatch({ type: 'ADD LIKE' });
       e.preventDefault();
-      console.log(this.props)
     }
     render() { 
-       const {item}=this.props
+       const {item,deleteReducer}=this.props
         return ( 
             
                     <li className="comment">
@@ -22,6 +29,7 @@ class CommentsItem extends Component {
                         <div className="like-block">
                         <span className="like-number">{item.like}</span>
                         <p><a onClick={this.add} href="#" className="like">Like</a></p>
+                        { item.showndeletebutton ? <button onClick={()=>deleteReducer(item._id)} className="btn py-2 px-2 btn-dark delete-button">Delete</button> : null }
                         </div>
                       </div>
                     </li>
@@ -34,5 +42,18 @@ const mapStateToProps=(state)=> {
     like:state.like
   };
 }
+const mapDispatchToProps=(dispatch)=>
+{
+    return {
+        deleteReducer:_id=>
+        {
+            dispatch({
+                type:'DELETE COMMENT',
+                _id 
 
-export default connect(mapStateToProps)(CommentsItem) 
+            })
+        }
+        
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(CommentsItem) 

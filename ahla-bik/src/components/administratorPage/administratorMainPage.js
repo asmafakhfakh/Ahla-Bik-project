@@ -13,16 +13,22 @@ class Admin extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            showncomments:false
+            showncomments:false,
+            shownarticles:false,
          }
     }
 
-    inputhandler=()=>
+    inputcommentshandler=()=>
     {
-      this.setState({showncomments:!this.state.shown})
+      this.setState({showncomments:!this.state.showncomments})
     }
-
-
+    inputarticleshandler=()=>
+    {
+      this.setState({shownarticles:!this.state.shownarticles})
+    }
+    showdeletebutton=()=>{
+        this.props.dispatch({type:'SHOW DELETE BUTTON'});
+      }
     render() { 
         
         return ( 
@@ -30,11 +36,11 @@ class Admin extends Component {
             <Navbar/>
 
             <div className="Admin-container">
-            <button onClick={this.inputhandler} className="btn py-3 px-4 btn-primary" type="button">Manage Comments</button>
+            <button onClick={()=>{this.showdeletebutton();this.inputcommentshandler()}} className="btn py-3 px-4 btn-primary" type="button">Manage Comments</button>
             <ul className="comment-list test">
             { this.state.showncomments ?  this.props.comment.map((el,index)=><CommentsItem item={el} key={index}/>)  : null }
             </ul>
-            <button onClick={this.inputhandler} className="btn py-3 px-4 btn-primary" type="button">Manage Articles</button>
+            <button onClick={this.inputarticleshandler} className="btn py-3 px-4 btn-primary" type="button">Manage Articles</button>
             {}
             <button onClick={this.inputhandler} className="btn py-3 px-4 btn-primary" type="button">Manage Hosts</button>
             {}
@@ -52,9 +58,12 @@ class Admin extends Component {
         </div> );
     }
 }
- 
-const mapStateToProps=(state)=>
-{  return {comment:state.experienceCommentReducer}
-}
+
+const mapStateToProps=(state)=> {
+    return {
+      comment:state.experienceCommentReducer, 
+      like:state.like
+    };
+  }
 
 export default connect(mapStateToProps)(Admin)
