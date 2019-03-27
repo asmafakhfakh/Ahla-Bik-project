@@ -21,21 +21,19 @@ class SideSearch extends Component {
     handleActivityChange=(event)=>{
         this.setState({keyactivity: event.target.value})
     }
-    // handleCityChange=(event)=>{
-    //     this.setState({keycity: event.target.value})
-    // }
+    handleCityChange=(event)=>{
+       this.setState({keycity: event.target.value})
+    }
     // handleNumberChange=(event)=>{
     //     this.setState({keynumber: event.target.value})
     // }
     handleClick=()=>{
-      console.log(this.state.keyactivity)
-        this.props.searchReducer(this.state.keyactivity)
+        this.props.searchReducer(this.state.keyactivity,this.state.keycity)
+        console.log({...this.state})
     }
 
     render() { 
-      console.log(this.props.keysearch)
-      console.log(this.props.searchReducer)
-
+      
         return ( 
             <div className="col-lg-3 sidebar order-md-last ftco-animate fadeInUp ftco-animated">
               <div className="sidebar-wrap ftco-animate fadeInUp ftco-animated">
@@ -63,8 +61,8 @@ class SideSearch extends Component {
                         <div className="icon"><span className="ion-ios-arrow-down" /></div>
                         <select name id className="form-control" placeholder="Keyword search" onChange={this.handleCityChange}>
                           <option value="">City</option>
-                          <option value="tunis">Tunis</option>
-                          <option value="sousse">Sousse</option>
+                          <option value="Tunis">Tunis</option>
+                          <option value="Sousse">Sousse</option>
                           <option value="ariana">Ariana</option>
                           <option value="beja">Beja</option>
                           <option value="ben arous">Ben Arous</option>
@@ -144,19 +142,20 @@ class SideSearch extends Component {
 }
 
 
-const mapStateToProps=(state)=>{
-    return{
-        keysearch:state.searchReducer
-    }
-}
+ const mapStateToProps=(state)=>{
+     return{
+         keysearch:state.searchReducer
+     }
+ }
 
 
 const mapDispatchToProps=(dispatch)=>{
     return{
-        searchReducer:keyactivity=>{
+        searchReducer:(keyactivity,keycity)=>{
             dispatch({
                 type:'SEARCH_HOST',
-                keyactivity
+                keyactivity,
+                keycity
             })
         }
     }
