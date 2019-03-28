@@ -25,7 +25,7 @@ class  AuthenticationApp extends React.Component {
         const { alert } = this.props;
         return (
             <div className="jumbotron">
-                 <h1>Reload la page - enzel f5  </h1>
+              
                 <div className="container">
            
                     <div className="col-sm-8 col-sm-offset-2">

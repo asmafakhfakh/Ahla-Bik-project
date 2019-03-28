@@ -6,6 +6,7 @@ import { authentication } from '../components/authentication/_reducers/authentic
 import { registration } from '../components/authentication/_reducers/registration.reducer';
 import { users } from '../components/authentication/_reducers/users.reducer';
 import { alert } from '../components/authentication/_reducers/alert.reducer';
+import addemailReducer from '../reducers/addemailReducer'
 
 export default combineReducers({experienceCommentReducer,
                                 experiencesArticlesReducer,
@@ -13,7 +14,8 @@ export default combineReducers({experienceCommentReducer,
                                 authentication,
                                 registration,
                                 users,
-                                alert
+                                alert,
+                                addemailReducer,
                             })
 
 

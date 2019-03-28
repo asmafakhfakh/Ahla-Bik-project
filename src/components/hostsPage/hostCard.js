@@ -12,10 +12,10 @@ class HostCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: false,
             day:"",
-            number:0,
-            mail:""
+            number: 0,
+            email:"",
+            open: false,
         }
     }
 
@@ -30,8 +30,8 @@ class HostCard extends Component {
         this.setState({[event.target.name]:event.target.value});
     }
     handleClick=()=>{
-        axios.post('/send-request',this.state.day,this.state.number, this.state.mail)
-       .then(()=>this.props.sendRequestReducer(this.state.day,this.state.number, this.state.mail))
+        axios.post('/send-request',{...this.state})
+       .then(()=>this.props.sendRequestReducer({...this.state}))
        .catch((err)=>alert(err))
        this.setState({ open: false })    
     }
@@ -52,7 +52,7 @@ class HostCard extends Component {
                         <div className="one">
                             <h3><a href="#">{item.title}</a></h3>
                             <p className="rate">
-                                <StarRatingComponent name="rate1" starCount={5} editing={false} value={item.rating} />
+                                <StarRatingComponent name="rate1" starCount={item.rating} />
                             </p>
                         </div>
                         <div className="two">
@@ -76,7 +76,7 @@ class HostCard extends Component {
                                 <h5>Number of visitors</h5>
                                 <input type='number' name="number" placeholder="Number" onChange={this.handleModalChange}/>
                                 <h5>Your email</h5>
-                                <input type='email' name="mail" placeholder="Your email" onChange={this.handleModalChange}/>
+                                <input type='email' name="email" placeholder="Your email" onChange={this.handleModalChange}/>
                                 <br/>
                                 <br/>
                                 <Button variant="outline-success" className="ml-auto" onClick={this.handleClick}>Send request</Button>
@@ -93,13 +93,11 @@ class HostCard extends Component {
 const mapDispatchToProps=(dispatch)=>
 {
     return {
-        sendRequestReducer:(newday, newnumber, newmail)=>
+        sendRequestReducer:(newrequest)=>
         {
             dispatch({
                 type:'SEND_REQUEST',
-                newday,
-                newnumber,
-                newmail
+                newrequest
             })
         }
     }

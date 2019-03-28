@@ -15,8 +15,8 @@ class ContactPage extends Component {
       this.setState({ email:event.target.value })
     }
     handleClick=()=>{
-      axios.post('/add-contact',this.state.email)
-       .then(()=>this.props.addemailReducer(this.state.email))
+      axios.post('/add-contact',{...this.state})
+       .then(()=>this.props.addemailReducer({...this.state}))
        .catch((err)=>alert(err))
     }
 
@@ -121,11 +121,15 @@ class ContactPage extends Component {
         </div> );
     }
 }
-const mapDispatchToProps=(dispatch)=>
+const mapStateToProps=(state)=>
 {
     return {
-        addemailReducer:newemail=>
-        {
+        contacts:state.addemailReducer
+    }
+}
+const mapDispatchToProps=(dispatch)=>{
+    return {
+        addemailReducer:newemail=>{
             dispatch({
                 type:'ADD_EMAIL',
                 newemail
@@ -133,4 +137,4 @@ const mapDispatchToProps=(dispatch)=>
         }
     }
 }
-export default connect(null,mapDispatchToProps)(ContactPage);
+export default connect(mapStateToProps,mapDispatchToProps)(ContactPage);

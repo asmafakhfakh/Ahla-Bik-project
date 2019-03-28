@@ -12,6 +12,7 @@ MongoClient.connect(MongoUrl,{useNewUrlParser:true},(err,client)=>{
     assert.equal(null,err,'can not connect to database')
     const db=client.db(database)
 
+//-----------------------------------newsletters--------------------------------------------
 //add newsletters subscriber
 app.post('/add-contact',(req,res)=>{
     let newsub=req.body
@@ -28,7 +29,7 @@ app.get('/get-contact',(req,res)=>{
     })   
 })
 
-
+//-------------------------------------guest request------------------------------------------
 //send request
 app.post('/send-request',(req,res)=>{
     let newreq=req.body
@@ -45,6 +46,15 @@ app.get('/get-request',(req,res)=>{
     })   
 })
 
+//------------------------------------hosts---------------------------------------------
+//add host
+app.post('/add-host',(req,res)=>{
+    let newhost=req.body
+    db.collection('hosts').insertOne(newhost,(err,data)=>{
+        if(err) res.send("Can't add host")
+        else res.send(data)
+    })
+})
 //get hosts
 app.get('/get-host',(req,res)=>{
     db.collection('hosts').find().toArray((err,data)=>{
