@@ -1,0 +1,26 @@
+.Admin-container{
+    width:200px;
+    height:400px;
+    margin-left:15px;
+    margin-top:100px;
+    background-color: white;
+    padding:10px;
+    border-radius:2%;
+    border-color:none;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+
+}
+.Manage-Comments{
+    margin-top:50px;
+}
+.test{
+    position: absolute;
+    margin-left:300px;
+    width: 750px;
+    background-color: white;
+    margin-top:155px;
+    border-radius:1%;
+}
