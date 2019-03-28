@@ -42,7 +42,7 @@ class HostCard extends Component {
         const {item}=this.props
         return ( <div>
             <div className="destination">
-                <a href="#" className="img img-2 d-flex justify-content-center align-items-center" style={{backgroundImage: `url(${item.imgsrc})`}}>
+                <a href="/hosts" className="img img-2 d-flex justify-content-center align-items-center" style={{backgroundImage: `url(${item.imgsrc})`}}>
                     <div className="icon d-flex justify-content-center align-items-center">
                         <span className="icon-link" />
                     </div>
@@ -50,7 +50,7 @@ class HostCard extends Component {
                 <div className="text p-3">
                     <div className="d-flex">
                         <div className="one">
-                            <h3><a href="#">{item.title}</a></h3>
+                            <h3><a href="/hosts">{item.title}</a></h3>
                             <p className="rate">
                                 <StarRatingComponent name="rate1" starCount={item.rating} />
                             </p>

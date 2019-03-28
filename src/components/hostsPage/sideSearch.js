@@ -117,7 +117,7 @@ class SideSearch extends Component {
                 </form>
               </div>
 
-              <div className="sidebar-wrap ftco-animate fadeInUp ftco-animated">
+              {/* <div className="sidebar-wrap ftco-animate fadeInUp ftco-animated">
                 <h3 className="heading mb-4">Star Rating</h3>
                 <form method="post" className="star-rating">
                   <div className="form-check">
@@ -151,7 +151,7 @@ class SideSearch extends Component {
                     </label>
                   </div>
                 </form>
-              </div>
+              </div> */}
             </div>
          );
     }
