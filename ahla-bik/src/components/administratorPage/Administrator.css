@@ -24,3 +24,10 @@
     margin-top:155px;
     border-radius:1%;
 }
+.test-articles{
+    position: absolute;
+    margin-left:300px;
+    width: 750px;
+    background-color: white;
+    margin-top:2546px;
+}

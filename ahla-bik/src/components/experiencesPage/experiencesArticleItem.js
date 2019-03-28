@@ -25,6 +25,7 @@ class Article extends Component {
 
     render() { 
         const {item}=this.props
+        
         return ( 
             <div>
                   <h2 className="mb-3">{item.articlename}</h2>
@@ -62,8 +63,10 @@ class Article extends Component {
                 <div className="form-group">
                     <button onClick={this.inputhandler} className="btn py-3 px-4 btn-primary" type="button">Add Comment</button>
                     { this.state.shown ? <AddComment/> : null }
+                    { Object.values(...this.props.article)[6] ? <button className="btn py-3 px-4 btn-dark delete-button">Edit</button> : null}
+                    { !Object.values(...this.props.article)[7] ? <button className="btn py-3 px-4 btn-dark delete-button">Delete</button> : null}
+                                 
                  </div>
-
             </div>
          );
     }
@@ -73,9 +76,21 @@ class Article extends Component {
 
 
 const mapStateToProps=(state)=>
-{  return {comment:state.experienceCommentReducer}
+{  return {comment:state.experienceCommentReducer,
+           article:state.experiencesArticlesReducer}
 }
+const mapDispatchToProps=(dispatch)=>
+{
+    return {
+        deleteReducer:_id=>
+        {
+            dispatch({
+                type:'DELETE ARTICLE',
+                _id 
 
-
-
-export default connect(mapStateToProps)(Article)
+            })
+        }
+        
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Article)

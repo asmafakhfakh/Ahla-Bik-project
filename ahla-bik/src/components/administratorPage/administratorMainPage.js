@@ -5,6 +5,7 @@ import {Helmet} from 'react-helmet';
 import "./Administrator.css"
 
 import CommentsItem from "../experiencesPage/experiencesCommentsItem"
+import Article from "../experiencesPage/experiencesArticleItem"
 import Navbar from "../navbar"
 
 
@@ -19,15 +20,20 @@ class Admin extends Component {
     }
 
     inputcommentshandler=()=>
-    {
-      this.setState({showncomments:!this.state.showncomments})
+    {(this.state.shownarticles===true)?
+      this.setState({showncomments:!this.state.showncomments,shownarticles:!this.state.shownarticles}):
+      this.setState({showncomments:!this.state.showncomments,shownarticles:this.state.shownarticles})
+
     }
     inputarticleshandler=()=>
-    {
-      this.setState({shownarticles:!this.state.shownarticles})
+    {(this.state.showncomments===true)?
+      this.setState({shownarticles:!this.state.shownarticles,showncomments:!this.state.showncomments}):
+      this.setState({shownarticles:!this.state.shownarticles,showncomments:this.state.showncomments})
+
     }
-    showdeletebutton=()=>{
-        this.props.dispatch({type:'SHOW DELETE BUTTON'});
+    showdeletebutton=()=>{this.props.dispatch({type:'SHOW DELETE BUTTON'});
+      }
+    showarticleadminbutton=()=>{this.props.dispatch({type:'SHOW ARTICLE ADMIN BUTTONS'});
       }
     render() { 
         
@@ -40,8 +46,11 @@ class Admin extends Component {
             <ul className="comment-list test">
             { this.state.showncomments ?  this.props.comment.map((el,index)=><CommentsItem item={el} key={index}/>)  : null }
             </ul>
-            <button onClick={this.inputarticleshandler} className="btn py-3 px-4 btn-primary" type="button">Manage Articles</button>
-            {}
+            <button onClick={()=>{this.showarticleadminbutton();this.inputarticleshandler()}} className="btn py-3 px-4 btn-primary" type="button">Manage Articles</button>
+            <section className="ftco-degree-bg test-articles">
+                {/*maping articles*/}
+                { this.state.shownarticles? this.props.articles.map((el,index)=><Article item={el} key={index}/>):null}
+            </section>
             <button onClick={this.inputhandler} className="btn py-3 px-4 btn-primary" type="button">Manage Hosts</button>
             {}
             <button onClick={this.inputhandler} className="btn py-3 px-4 btn-primary" type="button">Manage Users</button>
@@ -62,8 +71,10 @@ class Admin extends Component {
 const mapStateToProps=(state)=> {
     return {
       comment:state.experienceCommentReducer, 
-      like:state.like
+      articles:state.experiencesArticlesReducer, 
     };
   }
+
+  
 
 export default connect(mapStateToProps)(Admin)

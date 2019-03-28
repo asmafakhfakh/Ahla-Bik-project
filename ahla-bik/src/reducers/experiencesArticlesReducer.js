@@ -9,7 +9,9 @@ const listOfArticles=[
     photo:{photoNum1},
     secondbody:'Quisquam esse aliquam fuga distinctio, quidem delectus veritatis reiciendis. Nihil explicabo quod, est eos ipsum. Unde aut non tenetur tempore, nisi culpa voluptate maiores officiis quis vel ab consectetur suscipit veritatis nulla quos quia aspernatur perferendis, libero sint. Error, velit, porro. Deserunt minus, quibusdam iste enim veniam, modi rem maiores.',
     authorname:'Name of Author',
-    authordescription:'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+    authordescription:'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+    showneditbutton:false,
+    showndeletebutton:false
     }, 
     {
       id:2, 
@@ -18,7 +20,9 @@ const listOfArticles=[
       photo:{photoNum2},
       secondbody:'Quisquam esse aliquam fuga distinctio, quidem delectus veritatis reiciendis. Nihil explicabo quod, est eos ipsum. Unde aut non tenetur tempore, nisi culpa voluptate maiores officiis quis vel ab consectetur suscipit veritatis nulla quos quia aspernatur perferendis, libero sint. Error, velit, porro. Deserunt minus, quibusdam iste enim veniam, modi rem maiores.',
       authorname:'Name of Author',
-      authordescription:'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+      authordescription:'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+      showneditbutton:false,
+      showndeletebutton:false
     }, 
     {
         id:3, 
@@ -27,18 +31,22 @@ const listOfArticles=[
         photo:{photoNum2},
         secondbody:'Quisquam esse aliquam fuga distinctio, quidem delectus veritatis reiciendis. Nihil explicabo quod, est eos ipsum. Unde aut non tenetur tempore, nisi culpa voluptate maiores officiis quis vel ab consectetur suscipit veritatis nulla quos quia aspernatur perferendis, libero sint. Error, velit, porro. Deserunt minus, quibusdam iste enim veniam, modi rem maiores.',
         authorname:'Name of Author',
-        authordescription:'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+        authordescription:'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+        showneditbutton:false,
+        showndeletebutton:false
     },   
     ]
-    const experiencearticleReducer=(state=listOfArticles,action)=>
+    const experiencesArticlesReducer=(state=listOfArticles,action)=>
   {
   switch(action.type)
   {
       case 'ADD COMMENT':
       return (state.concat(action.newcomment))
+      case 'SHOW ARTICLE ADMIN BUTTONS':
+      return (state.map((el,index)=>((el.showndeletebutton===false&&el.showneditbutton===false)?{id:el.id,articlename:el.articlename,firstbody:el.firstbody,photo:el.photo,secondbody:el.secondbody,authorname:el.authorname,authordescription:el.authordescription,showneditbutton:el.showneditbutton,showndeletebutton:!el.showndeletebutton}:el)))
       default :
       return state
   }
   
   }
-  export default experiencearticleReducer
+  export default experiencesArticlesReducer
