@@ -24,7 +24,7 @@ class Article extends Component {
   
 
     render() { 
-        const {item}=this.props
+        const {item,deleteReducer}=this.props
         
         return ( 
             <div>
@@ -64,7 +64,7 @@ class Article extends Component {
                     <button onClick={this.inputhandler} className="btn py-3 px-4 btn-primary" type="button">Add Comment</button>
                     { this.state.shown ? <AddComment/> : null }
                     { Object.values(...this.props.article)[6] ? <button className="btn py-3 px-4 btn-dark delete-button">Edit</button> : null}
-                    { !Object.values(...this.props.article)[7] ? <button className="btn py-3 px-4 btn-dark delete-button">Delete</button> : null}
+                    { !Object.values(...this.props.article)[7] ? <button onClick={()=>deleteReducer(item.id)} className="btn py-3 px-4 btn-dark delete-button">Delete</button> : null}
                                  
                  </div>
             </div>
@@ -82,11 +82,11 @@ const mapStateToProps=(state)=>
 const mapDispatchToProps=(dispatch)=>
 {
     return {
-        deleteReducer:_id=>
+        deleteReducer:id=>
         {
             dispatch({
                 type:'DELETE ARTICLE',
-                _id 
+                id 
 
             })
         }

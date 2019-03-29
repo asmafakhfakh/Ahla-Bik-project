@@ -42,6 +42,8 @@ const listOfArticles=[
   {
       case 'ADD COMMENT':
       return (state.concat(action.newcomment))
+      case 'DELETE ARTICLE':
+      return (state.filter((el,index)=>el.id!==action.id))
       case 'SHOW ARTICLE ADMIN BUTTONS':
       return (state.map((el,index)=>((el.showndeletebutton===false&&el.showneditbutton===false)?{id:el.id,articlename:el.articlename,firstbody:el.firstbody,photo:el.photo,secondbody:el.secondbody,authorname:el.authorname,authordescription:el.authordescription,showneditbutton:el.showneditbutton,showndeletebutton:!el.showndeletebutton}:el)))
       default :
